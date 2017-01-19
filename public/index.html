@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="author" content="Khoa Nguyen">
 		<meta name="description" content="Show random dog images for dog lovers">
+    <meta name="og:image" content="https://gimmeadog.khoanguyen.me/og.jpg">
+    <meta name="og:url" content="https://gimmeadog.khoanguyen.me">
 		<title>Gimme A Dog - Random dog images</title>
 		<!-- <link rel="icon" href="https://milligram.github.io/images/favicon.ico"> -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
@@ -52,6 +54,7 @@
     }
     </style>
     <script>
+    var bool = false
     var reload = function () {
       var img = document.getElementById("dog")
       var loading = document.getElementById("loading")
@@ -61,8 +64,12 @@
         loading.style.display = "none"
         img.style.display = "block"
       }
-      img.src = "http://localhost:3000/https://source.unsplash.com/random/400x400/?dog" +
-      "remove_after_me" + Date.now().toString()
+      const src = [
+        "https://source.unsplash.com/random/400x400/?dog",
+        "https://loremflickr.com/400/400/dog"
+      ]
+      img.src = bool ? src[0] : src[1]
+      bool = !bool
     }
     </script>
 	</head>
@@ -95,8 +102,15 @@
       <section class="container">
         <p>
           Designed with <strong style="color: red">♥</strong>
-          by <a href="https://khoanguyen.me" title="Khoa Nguyen" target="_blank">
-          Khoa Nguyen</a>. Because she loves dogs.
+          by
+          <a
+            href="https://khoanguyen.me"
+            title="Khoa Nguyen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Khoa Nguyen
+          </a>. Because she loves dogs.
         </p>
       </section>
     </footer>

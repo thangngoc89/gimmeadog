@@ -5,6 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "got": "^6.7.1",
+    "http-server": "^0.9.0",
+    "inliner": "^1.10.1",
     "micro": "^6.2.0"
   },
   "scripts": {

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Khoa Nguyen">
+		<meta name="description" content="Show random dog images for dog lovers">
+		<title>Gimme A Dog - Random dog images</title>
+		<!-- <link rel="icon" href="https://milligram.github.io/images/favicon.ico"> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    <link rel="stylesheet" href="https://unpkg.com/milligram@1.2.4/dist/milligram.min.css">
+    <style>
+    .container {
+      max-width: 600px;
+      text-align: center;
+    }
+    header {
+      margin-top: 2rem;
+    }
+    main {
+      margin: 2rem 0;
+    }
+    main img, main .loading {
+      border-radius: 5px;
+      margin: 2rem auto;
+      background-color: #eee;
+      background: url(loading.svg) 50% no-repeat;
+      width: 400px;
+      height:400px;
+    }
+    main .loading {
+      display: none;
+    }
+    footer {
+      color: #333;
+    }
+    .fade-in-on-load {
+      animation-duration: 0.25s;
+      animation-name: fadeInOnLoad;
+    }
+    .fade-in-on-load {
+      animation-duration: 0.25s;
+      animation-name: fadeOutOnLoad;
+    }
+    @keyframes fadeInOnLoad {
+      0%,50% {opacity: 0}
+      100% {opacity: 1}
+    }
+    @keyframes fadeOutOnLoad {
+      100% {opacity: 1}
+      0%,50% {opacity: 0}
+    }
+    </style>
+    <script>
+    var reload = function () {
+      var img = document.getElementById("dog")
+      var loading = document.getElementById("loading")
+      img.style.display = "none"
+      loading.style.display = "block"
+      img.onload = function () {
+        loading.style.display = "none"
+        img.style.display = "block"
+      }
+      img.src = "http://localhost:3000/https://source.unsplash.com/random/400x400/?dog" +
+      "remove_after_me" + Date.now().toString()
+    }
+    </script>
+	</head>
+	<body>
+    <header>
+      <section class="container">
+        <h1>Gimme A Dog</h1>
+        <em>Here is a puppy to enlighten your day</em>
+      </section>
+    </header>
+    <main>
+      <section class="container">
+        <div class="row image-container">
+          <div class="column column-100">
+            <div id="loading" class="loading fade-in-on-load fade-out-on-load"></div>
+            <img
+              id="dog"
+              class="fade-in-on-load fade-out-on-load"
+              src="https://source.unsplash.com/random/400x400/?dog"
+              width="400"
+              height="400"
+              alt="Random dog images"
+            />
+          <button onclick="reload();">Love it! More please</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <section class="container">
+        <p>
+          Designed with <strong style="color: red">♥</strong>
+          by <a href="https://khoanguyen.me" title="Khoa Nguyen" target="_blank">
+          Khoa Nguyen</a>. Because she loves dogs.
+        </p>
+      </section>
+    </footer>
+	</body>
+</html>

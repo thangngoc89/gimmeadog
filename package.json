@@ -1,0 +1,13 @@
+{
+  "name": "gimmeadog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^6.7.1",
+    "micro": "^6.2.0"
+  },
+  "scripts": {
+    "start": "micro"
+  }
+}

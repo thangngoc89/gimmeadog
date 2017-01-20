@@ -1,5 +1,6 @@
 {
-    "name": "Gimme a dog",
+    "short_name": "Gimme a dog",
+    "name": "Gimme a dog - Show random dog images for dog lovers ",
     "icons": [
         {
             "src": "/icons/android-chrome-192x192.png",
@@ -12,6 +13,7 @@
             "type": "image/png"
         }
     ],
+    "start_url": "/index.html",
     "theme_color": "#88592d",
     "background_color": "#88592d",
     "display": "standalone"

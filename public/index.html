@@ -90,6 +90,9 @@
     }
     </style>
     <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
     var loaded = function () {
       var img = document.getElementById("dog")
       var loading = document.getElementById("loading")

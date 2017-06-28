@@ -2,10 +2,6 @@ const fs = require("fs");
 const Flickr = require("./Flickr");
 const async = require("async");
 
-if (process.env.NOW) {
-  require("now-logs")("gimmeadog");
-}
-
 const flickr = new Flickr({ api_key: "9004c05e70e74904adb8ee60b42856ae" });
 const totalPages = 50;
 

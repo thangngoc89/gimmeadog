@@ -102,11 +102,12 @@
       preloader()      
     }
     var preloader = function() {
-      counter++;
       (new Image()).src = baseUrl + (counter).toString();
       (new Image()).src = baseUrl + (counter+1).toString();
       (new Image()).src = baseUrl + (counter+2).toString();
       (new Image()).src = baseUrl + (counter+3).toString();
+      (new Image()).src = baseUrl + (counter+4).toString();
+      (new Image()).src = baseUrl + (counter+5).toString();
     }
     var reload = function () {
       var img = document.getElementById("dog")
@@ -114,6 +115,7 @@
       loading.style.display = "block"
       img.style.display = "none"
       img.src = "https://vanusldyfc.execute-api.ap-southeast-1.amazonaws.com/prod/?" + counter
+      counter++;      
       preloader()
     }
     </script>

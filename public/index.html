@@ -92,22 +92,29 @@
     }
     </style>
     <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-    }
+    var counter = 0
+    var baseUrl = "https://vanusldyfc.execute-api.ap-southeast-1.amazonaws.com/prod/?"
     var loaded = function () {
       var img = document.getElementById("dog")
       var loading = document.getElementById("loading")
       loading.style.display = "none"
       img.style.display = "block"
+      preloader()      
+    }
+    var preloader = function() {
+      counter++;
+      (new Image()).src = baseUrl + (counter).toString();
+      (new Image()).src = baseUrl + (counter+1).toString();
+      (new Image()).src = baseUrl + (counter+2).toString();
+      (new Image()).src = baseUrl + (counter+3).toString();
     }
     var reload = function () {
       var img = document.getElementById("dog")
       var loading = document.getElementById("loading")
       loading.style.display = "block"
       img.style.display = "none"
-      img.src = "https://gimmeadog-sffyzvueoj.now.sh/https://source.unsplash.com/random/400x400/?dog" +
-      "remove_after_me" + Date.now().toString()
+      img.src = "https://vanusldyfc.execute-api.ap-southeast-1.amazonaws.com/prod/?" + counter
+      preloader()
     }
     </script>
 	</head>
@@ -131,7 +138,7 @@
           <img
             id="dog"
             class="fade-in-on-load fade-out-on-load"
-            src="https://source.unsplash.com/random/400x400/?dog"
+            src="https://vanusldyfc.execute-api.ap-southeast-1.amazonaws.com/prod/"
             width="400"
             height="400"
             onload="loaded();"

@@ -23,7 +23,7 @@ exports.handle = function(e, ctx, cb) {
   getData()
     .then(data => {
       const url = getPhotoUrl(data, "z");
-      cb(null, { url, title: data.title });
+      ctx.succeed({ location: url });
     })
     .catch(err => cb(err));
 };

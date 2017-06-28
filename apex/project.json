@@ -1,0 +1,8 @@
+{
+  "name": "gimmeadog",
+  "description": "Gimme a dog",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::954847054592:role/gimmeadog_lambda_function",
+  "environment": {}
+}

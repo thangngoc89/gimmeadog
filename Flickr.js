@@ -7,10 +7,6 @@ const Flickr = function(keys) {
   this.apiUrl = "https://api.flickr.com/services/rest/";
 };
 
-Flickr.prototype.getPhotoUrl = function(photo, size = "c", result) {
-  const { server, farm, id, secret } = photo;
-  return `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_${size}.jpg`;
-};
 Flickr.prototype.get = function(method, opts, result) {
   const queryString = Object.assign(
     {},

@@ -1,5 +1,4 @@
 const cp = require("child_process");
-const flickr = new Flickr({ api_key: process.env.FLICK_TOKEN });
 
 const totalPages = 5000;
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);

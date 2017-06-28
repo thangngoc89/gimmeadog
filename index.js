@@ -1,28 +1,45 @@
-const { send } = require("micro")
-const got = require("got")
+const { send } = require("micro");
+const fs = require("pify")(require("fs"));
+const Flickr = require("./Flickr");
 
-const data = require("./data")
-
-const defaultDogUrl = "https://source.unsplash.com/random/400x400/?dog"
-let lastDog
-
-const randomDogImage = function () {
-  const aDog = data[Math.floor(Math.random() * data.length)]
-  return aDog
+if (process.env.NOW) {
+  require("now-logs")("gimmeadog");
 }
-module.exports = async function (req, res) {
-  const url = req.url.split("remove_after_me")[0].slice(1) || defaultDogUrl
-  const getRedirection = await got(url, {
-    method: "HEAD"
-  })
-  const imgUrl = getRedirection.url
 
-  if (lastDog === imgUrl) {
-    res.setHeader("Location", randomDogImage())
+const flickr = new Flickr({ api_key: "9004c05e70e74904adb8ee60b42856ae" });
+
+const totalPages = 50;
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const getDataPath = page =>
+  process.env.NODE_ENV === "production"
+    ? `/tmp/${page}.json`
+    : `./data/${page}.json`;
+
+module.exports = async function(req, res) {
+  const page = random(1, totalPages);
+  let result;
+  try {
+    result = require(getDataPath(page));
+  } catch (e) {
+    result = await flickr.get("photos.search", {
+      text: "dog",
+      tags: "dog,dogs",
+      tag_mode: "all",
+      content_type: "photos",
+      media: "photos",
+      sort: "interestingness-desc",
+      license: "1,2,3,4,5,6,7",
+      page: page,
+      per_page: 100
+    });
+    await fs.writeFile(
+      getDataPath(page),
+      JSON.stringify(result.body, null, 2),
+      "utf-8"
+    );
+    result = result.body;
   }
-  else {
-    lastDog = imgUrl
-    res.setHeader("Location", imgUrl)
-  }
-  send(res, 302)
-}
+  const finalPhoto = result.photos.photo[random(0, 99)];
+  res.setHeader("Location", flickr.getPhotoUrl(finalPhoto, "z"));
+  send(res, 302);
+};

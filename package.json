@@ -4,10 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "async": "^2.5.0",
     "got": "^6.7.1",
     "http-server": "^0.9.0",
     "inliner": "^1.10.1",
-    "micro": "^6.2.0"
+    "micro": "^6.2.0",
+    "now-logs": "^0.0.7",
+    "pify": "^3.0.0"
   },
   "scripts": {
     "start": "micro"

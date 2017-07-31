@@ -1,0 +1,85 @@
+{
+  "name": "thangngoc89/gimmeadog",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "",
+  "style": {
+    "name": "Swiss",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/SwissHeader",
+      "article": "article/SwissArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+    "heading": {
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
+    },
+    "layout": {
+      "fluid": true
+    },
+    "colors": {
+      "text": "#000",
+      "background": "#fff",
+      "primary": "#05a",
+      "secondary": "#444",
+      "highlight": "#f30",
+      "border": "#ccc",
+      "muted": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://gimmeadog.khoanguyen.me",
+          "text": "Home"
+        },
+        {
+          "href": "https://github.com/thangngoc89/gimmeadog",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/gimmeadog",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "gimmeadog",
+      "subhead": "Gimme A Dog - Random Doggy images From Flickr",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "gimmeadog: Gimme A Dog - Random Doggy images From Flickr",
+          "url": "https://gimmeadog.khoanguyen.me"
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "thangngoc89",
+          "repo": "gimmeadog"
+        }
+      ],
+      "text": "v1.0.0"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/thangngoc89/gimmeadog",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/thangngoc89",
+          "text": "thangngoc89"
+        }
+      ]
+    }
+  ]
+}
